@@ -33,7 +33,7 @@ yarn install
 ### 2. Run Applications
 
 ```
-yarn start
+yarn dev
 ```
 
 If you run project and get error, make sure you've installed `Node.js >= 16` and `yarn`.
@@ -74,8 +74,6 @@ public
   `-- manifest
       PWA related images.
 src
-  |-- atoms
-      The global state config for atom is defined here.
   |-- components
       Contains reusable components, such as: Navigation, Menus, etc...
       These components usually contain project specific data or behavior, they
@@ -90,7 +88,7 @@ src
       Services are used to abstract API calls, and define request and response data types.
 ```
 
-Most of folders contains `index.ts` file, which will export all files, and allow easy and readable inclusion in style of
+Most of folders contains `index.jsx` file, which will export all files, and allow easy and readable inclusion in style of
 `import { AuthAPI, logger } from '@app/services'`.
 
 ### Do's and don'ts
@@ -105,9 +103,9 @@ Most of folders contains `index.ts` file, which will export all files, and allow
 
 ## Environment
 
-- `🔴` DON'T, `🔴` DON'T: change `environment.ts` unless you're introducing a new variable,
-- `✅` DO: change `environment.dev.ts` and set your own values.
-- `✅` DO: if you're introducing a new variable to `environment.ts`, use descriptive and easy to understand naming
+- `🔴` DON'T, `🔴` DON'T: change `environment.jsx` unless you're introducing a new variable,
+- `✅` DO: change `environment.dev.jsx` and set your own values.
+- `✅` DO: if you're introducing a new variable to `environment.jsx`, use descriptive and easy to understand naming
 - `✅` DO: Include `environment` in following way: `import env from '@app/environment'`
 - `🔴` DON'T: import dev environment `import env from '@app/environment.dev'`!
 
@@ -125,7 +123,7 @@ We're following simple rules as defined in `.eslint.json`:
 We're using TypeScript:
 
 - `✅` DO: define proper and up-to-date types (especially for API request/response)
-- `✅` DO: generally: keep types in file with code; libraries/services: types can be stored in external file, named: `myFile.d.ts` (note the .d);
+- `✅` DO: generally: keep types in file with code; libraries/services: types can be stored in external file, named: `myFile.d.jsx` (note the .d);
 - `🔴` DON'T: use `any` notation (build will fail)
 - `🔴` DON'T: create common repository of types (i.e. `src/types` directory)
 
@@ -180,7 +178,7 @@ Minimum amount of CSS in declared in `public/assets/main.css`; that's the place 
 
 Styles are preferably defined inside component file, at the bottom. If they grow very big, the first question should be, weather component itself is
 too big, and could/should be split into multiple sections (ui elements or components). In rare cases, styles can be store in external file, called
-`<ComponentName>.style.ts` which should export one default style.
+`<ComponentName>.style.jsx` which should export one default style.
 
 ---
 
